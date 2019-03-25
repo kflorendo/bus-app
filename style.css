@@ -1,6 +1,6 @@
 .website-title {
     background: #FCD469 !important;
-    
+
 }
 
 .title-text {
@@ -53,14 +53,15 @@ body {
 
 .btn-box {
     display: inline-block;
+    margin: 0px 20px 0px 20px;
 }
 
-.btn-text:hover #btn-text{
+.btn-box:hover #btn-text{
     opacity: 1;
     transform: translate(0,-10px) scale(1.1);
 }
 
-.btn-text:hover .icon-button{
+.btn-box:hover .icon-button{
     transition: all 0.5s;
     transform: scale(0.75);
 }
@@ -73,7 +74,7 @@ body {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
  }
- 
+
  @-webkit-keyframes fadeInLeft {
     0% {
        opacity: 0;
@@ -84,7 +85,7 @@ body {
        -webkit-transform: translateX(0);
     }
  }
- 
+
  @keyframes fadeInLeft {
     0% {
        opacity: 0;
@@ -95,7 +96,7 @@ body {
        transform: translateX(0);
     }
  }
- 
+
  .fadeInLeft {
     -webkit-animation-name: fadeInLeft;
     animation-name: fadeInLeft;
