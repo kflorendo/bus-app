@@ -308,7 +308,7 @@ textarea {
   overflow: auto;
   resize: vertical;
 }
-
+ 
 fieldset {
   min-width: 0;
   padding: 0;
@@ -12010,4 +12010,16 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+.page-title {
+  color: rgb(0,0,0);
+  font-size: 1.75rem;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.student {
+  background-color: yellow;
 }

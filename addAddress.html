@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Waypoints in Directions</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <style>
+      .pac-container{
+         z-index: 9999999 !important;
+      }
+    </style>
+  </head>
+  <body>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLocationModal">
+          Add location
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal" id="addLocationModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input id="autocomplete"
+                   placeholder="Enter address"
+                   onFocus="geolocate()"
+                   type="text"/>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id='add-button' onClick="addLocate()">Add</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </body>
+
+    <script>
+          var autocomplete;
+          function initAutocomplete() {
+            // Create the autocomplete object, restricting the search predictions to
+            // geographical location types.
+            autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'), {types: ['geocode']});
+            
+            // Avoid paying for data that you don't need by restricting the set of
+            // place fields that are returned to just the address components..
+            autocomplete.setFields(['address_component']);
+          
+            // When the user selects an address from the drop-down, populate the
+            // address fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+          }
+          
+          // Bias the autocomplete object to the user's geographical location,
+          // as supplied by the browser's 'navigator.geolocation' object.
+          function geolocate() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle(
+                    {center: geolocation, radius: position.coords.accuracy});
+                autocomplete.setBounds(circle.getBounds());
+              });
+            }
+          }
+          
+        /*function addLocate() { 
+            var file = fileInput.files[0]; // get our file
+            
+            var formData = new FormData() // create a form data so we can transfer images
+            formData.append('clothing', $('#autocomplete').val())
+            
+            $.ajax({
+                url: 'search_process.php', // to the server
+                type: 'POST',
+                data: formData,
+                processData: false, // we don't want Jquery to modify our raw image data
+                contentType: false,
+                success: function(data) {
+                    alert("Added")
+                    off(); // close the add item popup
+                    searchData(); // and refresh the table
+                },
+                error: function(request, error) {
+                    console.log("Error", error)
+                }
+            })
+          }*/
+
+          
+        </script>
+        
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB96-fS4ULerQSsGHUGTgWokSKLZbkKAk8&libraries=places&callback=initAutocomplete">
+        </script>
+    </body>
+</html>
