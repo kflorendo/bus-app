@@ -53,12 +53,14 @@
     </style>
   </head>
     <body>
+        <a href="test.html"/>link to test.html</a>
+
         <h1>Driver</h1>
 
         <h1>My First Google Map</h1>
-        
+
         <button onClick = "on()">cLICK to add</button>
-        
+
         <div id="overlay"> <!-- Pop up used to add new location -->
                 <div id="add-pop-up">
                     <div id='pop-up-box'>
@@ -84,24 +86,24 @@
                    placeholder="Enter address"
                    onFocus="geolocate()"
                    type="text"/>
-          </div> 
-          
+          </div>
+
           <div class="dash-submit">
             <input class="dash-submit-button" type="submit" id = "submit" value="Submit" />
           </div>
-          
+
           </form>
           <div class="dash-add">
           <button class="dash-add-button" onclick="addfieldFunction()">ADD</button>
           </div>-->
-        
+
         <script>
           var i = 0
 
           function increment() {
             i += 1;
           }
-          
+
           function addfieldFunction() {
             var r = document.createElement('div');
             var y = document.createElement("INPUT");
@@ -113,23 +115,23 @@
             r.appendChild(y);
             document.getElementById("locationField").appendChild(r);
           }
-          
+
           var autocomplete;
           function initAutocomplete() {
             // Create the autocomplete object, restricting the search predictions to
             // geographical location types.
             autocomplete = new google.maps.places.Autocomplete(
                 document.getElementById('autocomplete'), {types: ['geocode']});
-          
+
             // Avoid paying for data that you don't need by restricting the set of
             // place fields that are returned to just the address components.
             autocomplete.setFields(['address_component']);
-          
+
             // When the user selects an address from the drop-down, populate the
             // address fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
           }
-          
+
           // Bias the autocomplete object to the user's geographical location,
           // as supplied by the browser's 'navigator.geolocation' object.
           function geolocate() {
@@ -145,25 +147,25 @@
               });
             }
           }
-          
+
         function on() { // display the add item overlay
           document.getElementById("overlay").style.display = "block";
         }
-        
+
         function off() { // hide the add item overlay
           document.getElementById("overlay").style.display = "none";
         }
-        
+
         function addLocate() {
-          
+
         }
-        
+
         function addClothing() { // add a clothing item
             var file = fileInput.files[0]; // get our file
-            
+
             var formData = new FormData() // create a form data so we can transfer images
             formData.append('clothing', $('#autocomplete').val())
-            
+
             $.ajax({
                 url: 'search_process.php', // to the server
                 type: 'POST',
@@ -181,7 +183,7 @@
             })
           }
 
-          
+
         </script>
         <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB96-fS4ULerQSsGHUGTgWokSKLZbkKAk8&libraries=places&callback=initAutocomplete">
