@@ -35,7 +35,7 @@
         var address = document.getElementById('autocomplete').value;
 
         $.ajax({
-            url: '../php/add_route.php', // to the server
+            url: 'add_route.php', // to the server
             type: 'POST',
             data: {'address': address},
             success: function(data) {
@@ -43,8 +43,7 @@
             },
             error: function(request, error) {
                 console.log("Error", error)
-            },
-            dataType: 'text'
+            }
         })
 
       }
