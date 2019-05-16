@@ -43,7 +43,8 @@
             },
             error: function(request, error) {
                 console.log("Error", error)
-            }
+            },
+            dataType: 'text'
         })
 
       }
