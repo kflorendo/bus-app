@@ -35,7 +35,7 @@
         var address = document.getElementById('autocomplete').value;
 
         $.ajax({
-            url: 'http://kflorendo.github.io/bus-app/add-route.php', // to the server
+            url: 'https://kflorendo.github.io/bus-app/add-route.php', // to the server
             type: 'POST',
             data: {'address': address},
             success: function(data) {
