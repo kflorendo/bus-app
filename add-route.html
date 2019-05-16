@@ -7,7 +7,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Admin</title>
+        <title>Add Route</title>
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -15,6 +17,15 @@
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.css" rel="stylesheet">
+        <!--Put address selection in front-->
+        <style>
+          .pac-container{
+             z-index: 9999999 !important;
+          }
+          .new-stop-input {
+            width: 100%;
+          }
+        </style>
     </head>
     <body id="page-top">
 
@@ -82,7 +93,7 @@
                   <!-- Topbar -->
                   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <h1 class="page-title">ADMIN</h1>
+                    <h1 class="page-title">ADD ROUTE</h1>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -133,20 +144,56 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                      <h1 class="h3 mb-0 text-gray-800">Current Routes</h1>
+                      <h1 class="h3 mb-0 text-gray-800">New Route</h1>
                     </div>
 
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
-                              <!-- Card Header -->
-                              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h6 class="m-0 font-weight-bold text-primary">Real-time Routes</h6>
-                              </div>
-
                               <!-- Card Body -->
                               <div class="card-body">
-                                  <div id="googleMap" style="width:100%;height:400px;"></div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLocationModal">
+                                  Add stop
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal" id="addLocationModal">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title">Add Stop</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <form>
+                                      <div class="modal-body">
+
+                                        <!-- New Stop Form -->
+
+                                          <div class="form-group">
+                                            <label for="name">Student name:</label>
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="address">Address:</label>
+                                            <input id="autocomplete"  class="form-control" name="address"
+                                               placeholder="Enter address"
+                                               onFocus="geolocate()"
+                                               type="text"/>
+                                          </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id='add-button' onClick="addLocate()">Add</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                      </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+
                               </div>
                             </div>
                         </div>
@@ -211,7 +258,9 @@
             <script src="js/demo/chart-area-demo.js"></script>
             <script src="js/demo/chart-pie-demo.js"></script>
 
-            <script src="admin-script.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR4KoOZfkNAcHYdwW3nX3YkLhrQioKsMk&callback=myMap"></script>
+            <script src="./js/add-route-script.js"></script>
+            <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB96-fS4ULerQSsGHUGTgWokSKLZbkKAk8&libraries=places&callback=initAutocomplete">
+            </script>
           </body>
 </html>
