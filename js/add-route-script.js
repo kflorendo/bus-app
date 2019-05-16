@@ -12,7 +12,7 @@
 
         // When the user selects an address from the drop-down, populate the
         // address fields in the form.
-        autocomplete.addListener('place_changed');
+        autocomplete.addListener('place_changed', fillInAddress);
       }
 
       // Bias the autocomplete object to the user's geographical location,
