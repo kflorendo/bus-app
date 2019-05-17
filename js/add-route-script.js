@@ -67,6 +67,7 @@ $('form.ajax-form').on('submit', function() {
     data: data,
     success: function(response) {
       console.log(response);
+      alert("worked!");
     }
   });
   return false;

@@ -5,7 +5,7 @@ if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
 }
 */
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         //login and connect to mysql
         require_once 'login.php';
@@ -24,6 +24,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
           }
 
           mysql_close($db_server);
-}
-
-?>
+    }
