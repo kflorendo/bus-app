@@ -17,8 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $query_string = "INSERT INTO addresses (address) VALUES ('New Jersey');"
 
           //alert user if successfully added to database
-          if (!mysql_query($query_string)) {
-              die('Error: ' . mysql_error($db_server));
+          if (mysql_query($query_string)) {
+              print_r('nice');
+          } else {
+              print_r('an error occurred');
           }
 
           mysql_close($db_server);
