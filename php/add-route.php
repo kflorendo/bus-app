@@ -28,5 +28,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_O
           mysql_close($db_server);
 }
 */
-
-?>
