@@ -1,4 +1,8 @@
 <?php
+if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
+  print_r($_POST);
+}
+/*
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_ORIGIN'])) {
   $this->response->addHeader('Access-Control-Allow-Origin: ' . $this->request->server['HTTP_ORIGIN']);
   $this->response->addHeader('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
@@ -23,5 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_O
 
           mysql_close($db_server);
 }
+*/
 
 ?>
