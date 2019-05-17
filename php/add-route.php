@@ -17,11 +17,7 @@ if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
         $query_string = "INSERT INTO addresses (address) VALUES ('New Jersey');"
 
           //alert user if successfully added to database
-          if (mysql_query($query_string)) {
-              print_r('nice');
-          } else {
-              print_r('an error occurred');
-          }
+          mysql_query($query_string);
 
           mysql_close($db_server);
     }
