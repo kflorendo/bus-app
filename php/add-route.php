@@ -1,16 +1,12 @@
 <?php
+/*
 if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
   print_r($_GET);
 }
-/*
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_ORIGIN'])) {
-  $this->response->addHeader('Access-Control-Allow-Origin: ' . $this->request->server['HTTP_ORIGIN']);
-  $this->response->addHeader('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-  $this->response->addHeader('Access-Control-Max-Age: 1000');
-  $this->response->addHeader('Access-Control-Allow-Credentials: true');
-  $this->response->addHeader('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+*/
 
-  $headers = getallheaders();
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
         //login and connect to mysql
         require_once 'login.php';
 
@@ -27,4 +23,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_O
 
           mysql_close($db_server);
 }
-*/
+
+?>
