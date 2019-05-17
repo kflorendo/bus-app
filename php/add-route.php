@@ -1,6 +1,6 @@
 <?php
-if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
-  print_r($_POST);
+if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
+  print_r($_GET);
 }
 /*
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($this->request->server['HTTP_ORIGIN'])) {
