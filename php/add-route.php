@@ -1,6 +1,6 @@
 <?php
 /*
-if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
+if (isset($_GET['name'], $_GET['address'], $_GET['message'])) {
   print_r($_GET);
 }
 */
@@ -14,7 +14,7 @@ if (isset($_GET['name'], $_GET['email'], $_GET['message'])) {
         if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
         mysql_select_db("busRouteDB") or die("Unable to select database: " . mysql_error());
 
-        $query_string = "SELECT * FROM addresses;"
+        $query_string = "INSERT INTO addresses (address) VALUES ('New Jersey');"
 
           //alert user if successfully added to database
         $query = mysql_query($query_string);
