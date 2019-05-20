@@ -1,10 +1,10 @@
 <?php
-/*
-if (isset($_GET['name'], $_GET['address'], $_GET['message'])) {
+
+if (isset($_GET['name'], $_GET['address'])) {
   print_r($_GET);
 }
-*/
 
+/*
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         //login and connect to mysql
@@ -41,3 +41,4 @@ if (isset($_GET['name'], $_GET['address'], $_GET['message'])) {
 
           mysql_close($db_server);
     }
+*/
